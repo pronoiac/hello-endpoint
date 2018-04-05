@@ -1,24 +1,45 @@
-# README
+# hello endpoint
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Ruby on Rails app offers "hello world" as a service.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+```
+gem install bundler
+bundle install
+```
 
-* System dependencies
+To start the server: 
 
-* Configuration
+```
+rails server
+```
 
-* Database creation
+To test the server:
 
-* Database initialization
+```
+> ./test-curl-json.sh
+{"message": "Good morning"}
+```
 
-* How to run the test suite
+More expected behavior (not implemented yet):
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+> ./test-curl.sh
+<p>Hello, World</p>
+```
 
-* Deployment instructions
 
-* ...
+## Goals
+### Part 1 - Writing an HTTP endpoint
+* [x] accept `GET` and `POST` requests
+* [ ] for `GET` request on `/`:
+  * [ ] no `Accept` header, expected response: `<p>Hello, World</p>`
+  * [x] `Accept` header includes `application/json`, expected response: `{"message": "Good morning"}`
+
+### Part 2 - Scripts and Unit tests for validating correct behavior
+* [x] command line scripts for testing - see `test-curl.sh` and `test-curl-json.sh`
+* [ ] include unit tests, like `rspec`
+
+## Status
+Incredibly incomplete!
